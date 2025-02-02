@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/pollo', function () {
     return view('/admin/products/index');
-});
+}) -> name('pollito');
 
 Route::resource(('/products'), App\Http\Controllers\ProductController::class);
 

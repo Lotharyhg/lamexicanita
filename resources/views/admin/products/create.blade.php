@@ -1,3 +1,6 @@
-<div>
-    <!-- It is not the man who has too little, but the man who craves more, that is poor. - Seneca -->
-</div>
+@extends('layout.main_template')
+
+@section('sectionMain')
+<h2 class="display-3">Formulario Registro Dulces</h2>
+
+@endsection
