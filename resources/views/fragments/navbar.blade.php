@@ -41,8 +41,42 @@
               <li><a class="dropdown-item" href="#">Salidas</a></li>
             </ul>
           </li>
-
         </ul>
+        {{-- Configuración de Inicio de Sesión --}}
+        @if(auth()->user() != null)
+        {{-- When Login --}}
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{auth()->user()->name}}
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                  <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                                                this.closest('form').submit();">
+                      Logout
+                    </a>
+                  </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        @else
+        {{-- When Logout --}}
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('register')}}">Registrar</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('login')}}">Login</a>
+          </li>
+        </ul>
+        @endif
+        {{-- Termina Inicio de Sesión --}}
+
       </div>
     </div>
   </nav>

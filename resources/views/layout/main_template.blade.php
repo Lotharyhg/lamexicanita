@@ -8,7 +8,10 @@
 </head>
 <body>
     @include('fragments.navbar')
+
+    @include('fragments.alerts')
     
+    {{-- @include('fragments.errorsv') --}}
     
     @yield('sectionMain')
 
